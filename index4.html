@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .error-msg {
+            display: none;
+        }
+        .form-group.invalid .form-control {
+            border-color: red;
+        }
+        .form-group.invalid label {
+            color: red;
+            font-weight: bold;
+        }
+        .form-group.invalid .error-msg {
+            display: block;
+            color: red;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container mt-5">
+        <form id = "ProjectForm" novalidate >
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name: </label>
+                    <input type = "text" class = "form-control" id = "firstName">
+                    <div class="error-msg">Please Supply your First Name!</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name: </label>
+                    <input type = "text" class = "form-control" id = "LastName">
+                    <div class="error-msg">Please Supply your Last Name!</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>E-Mail: </label>
+                <input type = "email" class = "form-control" id = "email">
+                <div class="error-msg">Please Supply your email address!</div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone#</label>
+                <input type = "tel" class = "form-control" id = "phone">
+                <div class="error-msg">Please supply your phone Number!</div>
+            </div>
+
+            <div class="form-group">
+                <label>Address: </label>
+                <input type = "text" class = "form-control" id = "address">
+                <div class="error-msg">Please Supply your Address!</div>
+            </div>
+
+            <div class="form-group">
+                <label>City: </label>
+                <input type = "text" class = "form-control" id = "city">
+                <div class="error-msg">Please Supply your City!</div>
+            </div>
+
+            <div class="form-group">
+                <label>State</label>
+                <select class = "form-control" id = "state">
+                    <option value = "">Please provide your State!</option>
+                    <option>Maharashtra</option>
+                    <option>Tamil Nadu</option>
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                </select>
+            <div class="error-msg">Please Provide your State!</div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you have a hosting?</label><br>
+                <div class ="form-check form-check-inline">
+                    <input class = "form-check-input" type = "radio" name = "hosting" value = "yes">
+                    <label class = "form-check">Yes</label>
+                </div>
+
+                <div class = 'form-check form-check-inline'>
+                    <input class = "form-check-input" type = "radio" name = "hosting" value = "no">
+                    <label class = "form-check"> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Project Description</label>
+                <textarea class = 'form-control' rows = "3"></textarea>
+            </div>
+
+            <button type = "submit" class = "btn btn-warning">Send</button> 
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("ProjectForm").addEventListener("submit" , function(e){
+            e.preventDefault();
+
+            let isValid = true;
+
+            const requiredFields = [
+                "firstName",
+                "LastName",
+                "email",
+                "phone",
+                "address",
+                "city",
+                "state"
+            ];
+
+            requiredFields.forEach(id =>{
+                const input = document.getElementById(id);
+                const group = input.closest(".form-group");
+
+                if(!input.value.trim()){
+                    group.classList.add("invalid");
+                    isValid = false;
+                }else{
+                    group.classList.remove("invalid");
+                }
+            });
+            if(isValid){
+                window.alert("Form Submitted Succesfully");
+            }
+        });
+    </script>
+</body>
+</html>

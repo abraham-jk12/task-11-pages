@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Label>Enter String: <input type="text" id = "str" oninput="sort()"></Label><br><br>
+    Reversed: <p id = "demo"></p>
+
+    <script>
+        function sort(){
+            let str = document.getElementById("str").value;
+
+            let res = str.split("").sort().join("");
+            document.getElementById("demo").innerText = res;
+        }
+    </script>
+</body>
+</html>

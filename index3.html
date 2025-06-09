@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label> 1st Number : <input type = "number" id = "one"></label><br><br>
+    <label> 2nd Number : <input type = "number" id = "two"></label><br><br>
+
+    <button onclick = "MUl()">Multiply</button> 
+    <button onclick = "Div()">Divide</button><br><br>
+
+    The result is: <br>
+    <p id = "demo"></p>
+
+    <script>
+        function MUl(){
+            let num1 = document.getElementById("one").value;
+            let num2 = document.getElementById("two").value;
+            let mul = num1 * num2;
+            document.getElementById("demo").innerText = mul;
+        }
+
+        function Div(){
+            let num1 = document.getElementById("one").value;
+            let num2 = document.getElementById("two").value;
+            
+            if(num2 === 0){
+                document.getElementById("demo").innerText="Division by Zero not possible";
+            }else{
+                let div = num1/num2;
+                document.getElementById("demo").innerText=div;
+            }
+        }
+    </script>
+</body>
+</html>
